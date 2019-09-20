@@ -3,11 +3,11 @@ shopt -s extglob
 
 url_components=()
 
-function parse_url() {
+parse_url() {
   IFS='/' read -r -a url_components <<< $1
 }
 
-function parse_request() {
+parse_request() {
   read -u 0 request
   method=$(echo "$request" | cut -d ' ' -f 1)
   url=$(echo "$request" | cut -d ' ' -f 2)
